@@ -13,6 +13,68 @@
         Style="{DynamicResource CleanWindowStyleKey}"
         Title="Seeker" Height="350" Width="525">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48"/>
+            <RowDefinition Height="24"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="24"/>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Black" Height="48" VerticalAlignment="Top" Background="{DynamicResource AccentColorBrush}">
+            <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Image x:Name="image" HorizontalAlignment="Left" Margin="10" VerticalAlignment="Top" Source="pack://siteoforigin:,,,/Resources/wizard_96px.png"/>
+                    <Label x:Name="label" VerticalAlignment="Center" Content="Seeker" FontSize="16" Foreground="{DynamicResource IdealForegroundColorBrush}" />
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button HorizontalAlignment="Right" Padding="10" Width="45" Style="{StaticResource FlatButtonStyle}">
+                        <Image Tag="{Binding IsRunning}" Margin="10" Width="25" Height="25">
+                            <Image.Style>
+                                <Style TargetType="Image">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsRunning}" Value="True">
+                                            <Setter Property="Source" Value="pack://siteoforigin:,,,/Resources/cancel_32px.png" />
+                                        </DataTrigger>
+                                        <DataTrigger Binding="{Binding IsRunning}" Value="False">
+                                            <Setter Property="Source" Value="pack://siteoforigin:,,,/Resources/play_round_32px.png" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Image.Style>
+                        </Image>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="ManageShopper" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button HorizontalAlignment="Right" Style="{StaticResource FlatButtonStyle}">
+                        <Image Source="pack://siteoforigin:,,,/Resources/settings_32px.png" Margin="10" Width="25" Height="25"></Image>
+
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <cal:ActionMessage MethodName="OpenSettings">
+                                    <cal:Parameter Value="0"/>
+                                </cal:ActionMessage>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                </StackPanel>
+            </DockPanel>
+        </Border>
+        <DockPanel LastChildFill="True" Grid.Row="1">
+            <Border DockPanel.Dock="Top" BorderThickness="0" Height="30" Grid.Row="1" VerticalAlignment="Top" IsEnabled="{Binding Path=CurrentUser.is_authenticated, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource NeoInfoBar}" Background="{DynamicResource AccentColorBrush2}">
+                <DockPanel HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                    <StackPanel DockPanel.Dock="Left" Orientation="Horizontal" Margin="2">
+                        <Image Source="pack://siteoforigin:,,,/Resources/user_26px.png" Margin="3"></Image>
+                        <Label Content="{Binding Path=CurrentUser.username, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource IdealForegroundColorBrush}"/>
+                    </StackPanel>
+                    <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" Margin="2">
+                        <Label Content="{Binding Path=CurrentUser.DisplayNP, UpdateSourceTrigger=PropertyChanged}" Foreground="{DynamicResource IdealForegroundColorBrush}"/>
+                        <Image Source="pack://siteoforigin:,,,/Resources/coin_26px.png" Margin="3"></Image>
+                    </StackPanel>
+                    <Grid></Grid>
+                </DockPanel>
+            </Border>
+        </DockPanel>
     </Grid>
 </Controls:MetroWindow>

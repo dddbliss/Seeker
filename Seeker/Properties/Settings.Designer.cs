@@ -34,5 +34,197 @@ namespace Seeker.Properties {
                 this["UI_Accent"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Login_Username {
+            get {
+                return ((string)(this["Login_Username"]));
+            }
+            set {
+                this["Login_Username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Login_Password {
+            get {
+                return ((string)(this["Login_Password"]));
+            }
+            set {
+                this["Login_Password"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Web_ProxyPassword {
+            get {
+                return ((string)(this["Web_ProxyPassword"]));
+            }
+            set {
+                this["Web_ProxyPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal General_WaitDelayMin {
+            get {
+                return ((decimal)(this["General_WaitDelayMin"]));
+            }
+            set {
+                this["General_WaitDelayMin"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal General_WaitDelayMax {
+            get {
+                return ((decimal)(this["General_WaitDelayMax"]));
+            }
+            set {
+                this["General_WaitDelayMax"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int General_NumberSegments {
+            get {
+                return ((int)(this["General_NumberSegments"]));
+            }
+            set {
+                this["General_NumberSegments"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int General_NumberPrices {
+            get {
+                return ((int)(this["General_NumberPrices"]));
+            }
+            set {
+                this["General_NumberPrices"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int General_RetryPrice {
+            get {
+                return ((int)(this["General_RetryPrice"]));
+            }
+            set {
+                this["General_RetryPrice"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string Pricing_PricingType {
+            get {
+                return ((string)(this["Pricing_PricingType"]));
+            }
+            set {
+                this["Pricing_PricingType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public decimal Pricing_AdjustAmount {
+            get {
+                return ((decimal)(this["Pricing_AdjustAmount"]));
+            }
+            set {
+                this["Pricing_AdjustAmount"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public string Pricing_AdjustType {
+            get {
+                return ((string)(this["Pricing_AdjustType"]));
+            }
+            set {
+                this["Pricing_AdjustType"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int Pricing_NoAdjustLimit {
+            get {
+                return ((int)(this["Pricing_NoAdjustLimit"]));
+            }
+            set {
+                this["Pricing_NoAdjustLimit"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Web_UserAgent {
+            get {
+                return ((string)(this["Web_UserAgent"]));
+            }
+            set {
+                this["Web_UserAgent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool Web_ProxyEnabled {
+            get {
+                return ((bool)(this["Web_ProxyEnabled"]));
+            }
+            set {
+                this["Web_ProxyEnabled"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Proxy_Uri {
+            get {
+                return ((string)(this["Proxy_Uri"]));
+            }
+            set {
+                this["Proxy_Uri"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Proxy_Username {
+            get {
+                return ((string)(this["Proxy_Username"]));
+            }
+            set {
+                this["Proxy_Username"] = value;
+            }
+        }
     }
 }

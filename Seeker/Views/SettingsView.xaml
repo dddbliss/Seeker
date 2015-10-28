@@ -9,8 +9,163 @@
         mc:Ignorable="d"
         GlowBrush="{DynamicResource AccentColorBrush}"
         TitleCaps="False" Style="{DynamicResource CleanWindowStyleKey}"
-        Title="SettingsView" Height="300" Width="300">
-    <Grid>
-        
+        Title="Settings"
+        Height="514.659" Width="539.011" Loaded="MetroWindow_Loaded">
+ 
+        <Grid Margin="0">
+            <TabControl x:Name="tabControl" SelectedIndex="{Binding ActiveTabIndex}" Margin="10,10,10,50">
+                <TabItem Header="General">
+                    <Grid>
+                        <StackPanel Margin="10,10,10,0" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10,10,5">
+                                <Image Width="32" Height="32" Source="pack://siteoforigin:,,,/Resources/change_theme_32px.png" />
+                                <Label VerticalAlignment="Stretch" VerticalContentAlignment="Center" Content="User Interface" FontSize="18" />
+                            </StackPanel>
+                            <DockPanel LastChildFill="True" VerticalAlignment="top" Margin="10">
+                                <Label Content="Color Scheme" MinWidth="100"></Label>
+                                <ComboBox ItemsSource="{Binding AccentList}" DisplayMemberPath="Value" SelectedValuePath="Key" SelectedValue="{Binding Source={StaticResource Settings}, Path=Default.UI_Accent}"></ComboBox>
+                            </DockPanel>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="User">
+                    <StackPanel Margin="10,10,10,0" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10,10,5">
+                            <Image Width="32" Height="32" Source="pack://siteoforigin:,,,/Resources/stopwatch_32px.png" />
+                            <Label VerticalAlignment="Stretch" VerticalContentAlignment="Center" Content="Neopets Authentication" FontSize="18" />
+                        </StackPanel>
+                        <DockPanel LastChildFill="True" VerticalAlignment="top" Margin="10">
+                            <Label Content="Username" MinWidth="100"></Label>
+                            <TextBox Text="{Binding Source={StaticResource Settings}, Path=Default.Login_Username}"></TextBox>
+                        </DockPanel>
+                        <DockPanel LastChildFill="True" VerticalAlignment="top" Margin="10">
+                            <Label Content="Password" MinWidth="100"></Label>
+                            <PasswordBox x:Name="txtPassword" PasswordChanged="txtPassword_PasswordChanged"></PasswordBox>
+                        </DockPanel>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Settings">
+                    <Grid>
+                        <StackPanel Margin="10,10,10,0" VerticalAlignment="Top">
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10,10,5">
+                                <Image Width="32" Height="32" Source="pack://siteoforigin:,,,/Resources/stopwatch_32px.png" />
+                                <Label VerticalAlignment="Stretch" VerticalContentAlignment="Center" Content="Wait Settings" FontSize="18" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10">
+                                <Label Content="General Wait Delay between"/>
+                                <Controls:NumericUpDown MinWidth="50" Minimum="0" Maximum="10" Value="{Binding Source={StaticResource Settings}, Path=Default.General_WaitDelayMin}" HideUpDownButtons="True"></Controls:NumericUpDown>
+                                <Label Content="seconds and"/>
+                                <Controls:NumericUpDown MinWidth="50" Minimum="0" Maximum="10" Value="{Binding Source={StaticResource Settings}, Path=Default.General_WaitDelayMax}" HideUpDownButtons="True"/>
+                                <Label Content="seconds."/>
+                            </StackPanel>
+                            
+                            <Border Height="1" VerticalAlignment="Center" Margin="0" OpacityMask="White" BorderThickness="0,0,0,1">
+                                <Border.BorderBrush>
+                                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                                </Border.BorderBrush>
+                            </Border>
+                            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10,10,5">
+                                <Image Width="32" Height="32" Source="pack://siteoforigin:,,,/Resources/wizard_32px.png" />
+                                <Label VerticalAlignment="Stretch" VerticalContentAlignment="Center" Content="Shop Wizard Settings" FontSize="18" />
+                            </StackPanel>
+
+                            <StackPanel Orientation="Horizontal" Margin="10">
+                                <Label Content="Attempt to collect"/>
+                                <Controls:NumericUpDown MinWidth="50" Minimum="0" Maximum="13" Value="{Binding Source={StaticResource Settings}, Path=Default.General_NumberSegments}" HideUpDownButtons="True"/>
+                                <Label Content="price segments for each item."/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10" MaxWidth="660" VerticalAlignment="Stretch">
+                                <Label Content="Attempt to find"/>
+                                <Controls:NumericUpDown MinWidth="50" Minimum="0" Maximum="100" Value="{Binding Source={StaticResource Settings}, Path=Default.General_NumberPrices}" HideUpDownButtons="True"/>
+                                <Label Content="prices for each item."/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="10" MaxWidth="660" VerticalAlignment="Stretch">
+                                <Label Content="Retry"/>
+                                <Controls:NumericUpDown MinWidth="50" Minimum="0" Maximum="100" Value="{Binding Source={StaticResource Settings}, Path=Default.General_RetryPrice}" HideUpDownButtons="True"/>
+                                <Label Content="times to find a price before giving up."/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+            <TabItem Header="Pricing">
+                <Grid>
+                    <StackPanel Margin="10,10,10,0" VerticalAlignment="Top">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Margin="10,10,10,5">
+                            <Image Width="32" Height="32" Source="pack://siteoforigin:,,,/Resources/coins_32px.png" />
+                            <Label VerticalAlignment="Stretch" VerticalContentAlignment="Center" Content="Pricing" FontSize="18" />
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <Label Content="Price items based on"/>
+                            <ComboBox SelectedValue="{Binding Source={StaticResource Settings}, Path=Default.Pricing_PricingType}">
+                                <ComboBoxItem Content="Lowest"/>
+                                <ComboBoxItem Content="Average"/>
+                                <ComboBoxItem Content="Highest"/>
+                            </ComboBox>
+                            <Label Content="price found."/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <Label Content="Adjust price by"/>
+                            <Controls:NumericUpDown MinWidth="50" Minimum="0" Maximum="13" Value="{Binding Source={StaticResource Settings}, Path=Default.Pricing_AdjustAmount}" HideUpDownButtons="True"/>
+                            <ComboBox Margin="8,0,0,0" SelectedValue="{Binding Source={StaticResource Settings}, Path=Default.Pricing_AdjustType}">
+                                <ComboBoxItem Content="Fixed NP"/>
+                                <ComboBoxItem Content="%"/>
+                            </ComboBox>
+                            <Label Content="."/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="10" MaxWidth="660" VerticalAlignment="Stretch">
+                            <Label Content="Do not adjust prices for items "/>
+                            <Controls:NumericUpDown MinWidth="50" Minimum="0" Maximum="100" Value="{Binding Source={StaticResource Settings}, Path=Default.Pricing_NoAdjustLimit}" HideUpDownButtons="True"/>
+                            <Label Content="NP or below."/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Proxy">
+                <StackPanel Margin="10,10,10,0" VerticalAlignment="Top">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="top" Margin="10,10,10,5">
+                        <Image Width="32" Height="32" Source="pack://siteoforigin:,,,/Resources/globe_32px.png" />
+                        <Label VerticalAlignment="Stretch" VerticalContentAlignment="Center" Content="Web Settings" FontSize="18" />
+                    </StackPanel>
+                    <DockPanel LastChildFill="True" VerticalAlignment="top" Margin="5">
+                        <Label Content="User Agent should be"></Label>
+                        <TextBox Text="{Binding Source={StaticResource Settings}, Path=Default.Web_UserAgent}"></TextBox>
+                    </DockPanel>
+                    <Border Height="1" VerticalAlignment="Center" Margin="5,5,0,5" OpacityMask="White" BorderThickness="0,0,0,1">
+                        <Border.BorderBrush>
+                            <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ActiveBorderColorKey}}"/>
+                        </Border.BorderBrush>
+                    </Border>
+
+                    <DockPanel Margin="10">
+                        <Image Width="32" Height="32" DockPanel.Dock="Left" Source="pack://siteoforigin:,,,/Resources/web_shield_32px.png"/>
+                        <CheckBox DockPanel.Dock="Right" VerticalAlignment="Center" Content="Enable Web Proxy" IsChecked="{Binding Source={StaticResource Settings}, Path=Default.Web_ProxyEnabled}"></CheckBox>
+                        <Label VerticalAlignment="Center" Content="Web Proxy" FontSize="18"></Label>
+                    </DockPanel>
+                    <DockPanel LastChildFill="True" VerticalAlignment="top" Margin="5">
+                        <Label Content="Web Proxy:"></Label>
+                        <TextBox Text="{Binding Source={StaticResource Settings}, Path=Default.Proxy_Uri}"></TextBox>
+                    </DockPanel>
+                    <StackPanel Orientation="Vertical" Margin="80,0,5,10">
+                        <DockPanel Margin="5,5,0,5">
+                            <Label Content="Proxy Username:" MinWidth="110"></Label>
+                            <TextBox Text="{Binding Source={StaticResource Settings}, Path=Default.Proxy_Username}" HorizontalAlignment="Stretch"></TextBox>
+                        </DockPanel>
+                        <DockPanel Margin="5,5,0,5">
+                            <Label Content="Proxy Password:" MinWidth="110"></Label>
+                            <PasswordBox x:Name="txtProxyPassword" HorizontalAlignment="Stretch" PasswordChanged="txtProxyPassword_PasswordChanged"></PasswordBox>
+                        </DockPanel>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </TabItem>
+        </TabControl>
+        <DockPanel LastChildFill="False" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10">
+            <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                <Button x:Name="Cancel" Content="Cancel" HorizontalAlignment="Right" Margin="0,0,10,0" VerticalAlignment="Bottom" />
+                <Button x:Name="Save" Content="Save Changes" Margin="0,0,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
+            </StackPanel>
+        </DockPanel>
     </Grid>
 </Controls:MetroWindow>

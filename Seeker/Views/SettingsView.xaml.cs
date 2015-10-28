@@ -23,5 +23,26 @@ namespace Seeker.Views
         {
             InitializeComponent();
         }
+
+        private void txtPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            { ((dynamic)this.DataContext).Password = ((PasswordBox)sender).Password; }
+        }
+
+        private void MetroWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            {
+                txtPassword.Password = Properties.Settings.Default.Login_Password;
+                txtProxyPassword.Password = Properties.Settings.Default.Web_ProxyPassword;
+            }
+        }
+
+        private void txtProxyPassword_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (this.DataContext != null)
+            { ((dynamic)this.DataContext).ProxyPassword = ((PasswordBox)sender).Password; }
+        }
     }
 }

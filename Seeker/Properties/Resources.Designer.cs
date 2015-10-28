@@ -173,6 +173,16 @@ namespace Seeker.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap wizard_32px {
+            get {
+                object obj = ResourceManager.GetObject("wizard_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wizard_96px {
             get {
                 object obj = ResourceManager.GetObject("wizard_96px", resourceCulture);
